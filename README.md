@@ -1,4 +1,4 @@
-Game Of Thrones Online Trivia
+[Game Of Thrones Online Trivia](https://got-app-d0350.firebaseapp.com/app/)
 ===================
 
 This development was made only for fun and extend my skills on AngularJS. Feel free to change or improve.
