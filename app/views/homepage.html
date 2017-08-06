@@ -1,0 +1,16 @@
+<div class="inner text-center animated fadeIn">
+  <h1 class="cover-heading">Are you a GOT expert?</h1>
+  <p class="lead">
+		Answer the following questions about GOT and prove your knowledge!
+  </p>
+  <a href="#" ng-click="startMatch()"
+  	ui-sref="questions({ id: firstQuestionId, counter: 0 })"
+  	class="btn btn-lg btn-outline-warning rounded-0">
+  	Start Quiz
+  </a>
+</div>
+<div class="mastfoot text-center">
+  <div class="inner">
+    <p>{{ matchs.$value }} Matches started and counting</p>
+  </div>
+</div>

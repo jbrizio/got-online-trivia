@@ -1,0 +1,25 @@
+{
+  "name": "GotApp",
+  "authors": [
+    "Jonathan Brizio <jonathanbrizio@gmail.com>"
+  ],
+  "description": "Game Of Thrones Online Quiz",
+  "main": "",
+  "keywords": [
+    "Game Of Thrones",
+    "Online Trivia",
+    "Online Quiz"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular-ui-router": "0.3.1",
+    "angular": "1.2.32",
+    "bootstrap": "v4.0.0-alpha.6",
+    "animate.css": "^3.5.2",
+    "font-awesome": "^4.7.0",
+    "firebase": "^4.2.0",
+    "angularfire": "^2.3.0"
+  }
+}

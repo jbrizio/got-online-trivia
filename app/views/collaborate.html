@@ -1,0 +1,72 @@
+<!-- Collaboration Page -->
+<form class="animated fadeIn" ng-submit="saveAnswer()">
+  <fieldset id="collaborate" class="form-group row" ng-disabled="disableAll">
+    <!-- Question -->
+    <div class="col-lg-12">
+      <div class="form-group row">
+        <label class="col-lg-12 col-form-label col-form-label-lg">
+          Write here your question!
+        </label>
+        <div class="col-lg-12">
+          <textarea class="form-control rounded-0"
+            rows="3"
+            placeholder="Be short and specific with your question" 
+            ng-model="colaboration.q"
+            required></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- Possible Answers -->
+    <div class="col-lg-12">
+      <input type="text"
+        class="form-control rounded-0"
+        placeholder="A: Write here the first answer"
+        ng-model="colaboration.a"
+        required>
+      <input type="text"
+        class="form-control rounded-0"
+        placeholder="B: Write here the second answer"
+        ng-model="colaboration.b"
+        required>
+      <input type="text"
+        class="form-control rounded-0"
+        placeholder="C: Write here the third answer"
+        ng-model="colaboration.c"
+        required>
+    </div>
+    <br>
+    <!-- Select the correct answer -->
+    <div class="col-lg-12">
+      <div class="form-group">
+        <label>The correct answer is</label>
+        <select class="form-control rounded-0"
+          ng-model="colaboration.solution"
+          required>
+          <option value="">Please select</option>
+          <option ng-value="{{ colaboration.a }}">{{ colaboration.a }}</option>
+          <option ng-value="{{ colaboration.b }}">{{ colaboration.b }}</option>
+          <option ng-value="{{ colaboration.c }}">{{ colaboration.c }}</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+  <!-- Show this alert on save the answer -->
+  <div ng-if="showSuccessAlert"
+    class="alert alert-success rounded-0"
+    role="alert">
+    <strong>Good news!</strong> Your answer was sent to review! Thanks
+  </div>
+  <!-- Save Answer -->
+  <button type="submit"
+    class="btn btn-outline-warning btn-lg btn-block rounded-0"
+    ng-hide="showHomeButton">
+    Save
+  </button>
+  <!-- Go to Home -->
+  <button type="button"
+    class="btn btn-outline-warning btn-lg btn-block rounded-0"
+    ui-sref="index"
+    ng-if="showHomeButton">
+    Homepage
+  </button>
+</form>

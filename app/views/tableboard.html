@@ -1,0 +1,27 @@
+<!-- Loader -->
+<div class="text-center">
+  <i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw" ng-if="!contentReady"></i>
+</div>
+<!-- Content -->
+<div class="text-center animated fadeIn" ng-if="contentReady">
+  <h3>Tableboard</h3>
+  <p>These are the recent 5 matches played</p>
+  <div class="card rounded-0">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item list-group-item-warning justify-content-between"
+        ng-repeat="(key, value) in tableboard | limitTo: 5 | orderBy: '-score'">
+        {{ value.username}}
+        <span class="badge badge-default badge-pill">
+          {{ value.score }} Points
+        </span>
+      </li>
+    </ul>
+  </div>
+  </br>
+  <!-- Go to Homepage -->
+  <button type="button"
+    class="btn btn-outline-warning btn-lg btn-block rounded-0"
+    ui-sref="index">
+    Homepage
+  </button>
+</div>

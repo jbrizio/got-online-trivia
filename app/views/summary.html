@@ -1,0 +1,29 @@
+<!-- Loader -->
+<div class="text-center">
+  <i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw" ng-if="!contentReady"></i>
+</div>
+<div class="text-center animated fadeIn" ng-if="contentReady">
+  <h3>Quiz Ended</h3>
+  <p>Correct Answers: {{ scoreboard }} of {{ totalQuestions }}</p>
+  <form name="form" ng-submit="saveMatch()">
+    <div class="form-group row">
+      <div class="col-lg-12">
+      <input type="text"
+        id="username"
+        name="username"
+        class="form-control form-control-lg rounded-0"
+        placeholder="What's your name?"
+        ng-model="username"
+        ng-change="bindUsername()"
+        ng-required="required">
+      </div>
+    </div>
+    <button type="submit"
+      ng-hide="form.username.$error.required"
+      class="btn btn-outline-warning btn-lg btn-block rounded-0 animated slideIn"
+      ng-click="saveMatch()"
+      ui-sref="tableboard({scoreboard: scoreboard})">
+      Save Match
+    </button>
+  </form>
+</div>

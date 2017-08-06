@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>     <html lang="en" data-ng-app="GotApp" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]>        <html lang="en" data-ng-app="GotApp" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]>        <html lang="en" data-ng-app="GotApp" class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" data-ng-app="GotApp" class="no-js"><!--<![endif]-->
+<head>
+  <!-- Metatags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Document Title -->
+  <title>GOT App Quiz</title>
+  <meta name="description" content="Game Of Thrones Online Quiz">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Custom Styles -->
+  <link href="assets/main.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="../bower_components/animate.css/animate.min.css">
+</head>
+<body data-ng-app="GotApp" data-ng-cloack>
+  <!-- AngularJS -->
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <!-- UI Router -->
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <!-- Firebase -->
+  <script src="../bower_components/firebase/firebase.js"></script>
+  <!-- AngularFire -->
+  <script src="../bower_components/angularfire/dist/angularfire.min.js"></script>
+  <!-- App Core -->
+  <script src="core/app.js"></script>
+  <!-- Routing Config -->
+  <script src="core/route-config.js"></script>
+  <!-- Services -->
+  <script src="services/matchs.js"></script>
+  <script src="services/questions.js"></script>
+  <script src="services/tableboard.js"></script>
+  <!-- Controllers -->
+  <script src="controllers/homepage.js"></script>
+  <script src="controllers/questions.js"></script>
+  <script src="controllers/summary.js"></script>
+  <script src="controllers/tableboard.js"></script>
+  <script src="controllers/collaborate.js"></script>
+  <!-- Base URL -->
+  <base href="/"></base>
+  <!-- Firebase Credentials -->
+  <script>
+    var config = {
+      apiKey: "AIzaSyDS0dNrF2bbCU9E5bTLUfzURj9vt42aD1Y",
+      authDomain: "got-app-d0350.firebaseapp.com",
+      databaseURL: "https://got-app-d0350.firebaseio.com",
+      projectId: "got-app-d0350",
+      storageBucket: "",
+      messagingSenderId: "274620825332"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- Content -->
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="masthead clearfix">
+          <div class="inner">
+            <h3 class="masthead-brand">Online Quiz</h3>
+            <nav class="nav nav-masthead">
+              <a class="nav-link" ui-sref="index"><i class="fa fa-home"></i></a>
+              <a class="nav-link" ui-sref="tableboard">Tableboard</a>
+              <a class="nav-link" ui-sref="collaborate">Collaborate</a>
+            </nav>
+          </div>
+        </div>
+        <!-- Dynamic Content -->
+        <div class="container">
+          <ui-view></ui-view>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- jQuery -->
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Tether -->
+  <script src="../bower_components/tether/dist/js/tether.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

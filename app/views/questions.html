@@ -1,0 +1,49 @@
+<!-- Loader -->
+<div class="text-center">
+  <i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw" ng-if="!contentReady"></i>
+</div>
+<!-- Content -->
+<form class="animated fadeIn" ng-if="contentReady">
+  <fieldset class="form-group row" ng-disabled="onAnswerSelected">
+    <div class="col-lg-12 questions__lives-remaining">
+      {{ lives }} of 3 Lives Remaining
+    </div>
+    <div class="col-lg-12">
+      <h3>{{ data.title }}</h3>
+    </div>
+    <div class="col-lg-12">
+      <div class="form-check" ng-repeat="(key, value) in data.list">
+        <label class="form-check-label">
+          <input class="form-check-input"
+            type="radio"
+            name="answers"
+            ng-value="value"
+            ng-model="answer.value"
+            required
+            ng-change="validateAnswer()">
+            {{ value }}
+        </label>
+      </div>
+    </div>
+  </fieldset>
+  <!-- Show this alert on correct answer -->
+  <div ng-if="showSuccessAlert"
+    class="alert alert-success rounded-0 animated bounce"
+    role="alert">
+    <strong>Well done!</strong> Your answer is correct
+  </div>
+  <!-- Show this alert on incorrect answer -->
+  <div ng-if="showDangerAlert"
+    class="alert alert-danger rounded-0 animated bounce"
+    role="alert">
+    <strong>Oh snap!</strong> Your answer is incorrect
+  </div>
+  <!-- Next Answer -->
+  <button type="submit"
+    ng-disabled="!onAnswerSelected"
+    ng-if="showNextButton"
+    class="btn btn-outline-warning btn-lg btn-block rounded-0"
+    ng-click="nextQuestion()">
+    Next Question
+  </button>
+</form>
