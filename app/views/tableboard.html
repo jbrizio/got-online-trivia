@@ -3,21 +3,28 @@
   <i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw" ng-if="!contentReady"></i>
 </div>
 <!-- Content -->
-<div class="text-center animated fadeIn" ng-if="contentReady">
-  <h3>Tableboard</h3>
-  <p>These are the recent 5 matches played</p>
-  <div class="card rounded-0">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item list-group-item-warning justify-content-between"
-        ng-repeat="(key, value) in tableboard | limitTo: 5 | orderBy: '-score'">
-        {{ value.username}}
-        <span class="badge badge-default badge-pill">
-          {{ value.score }} Points
-        </span>
-      </li>
-    </ul>
-  </div>
-  </br>
+<div class="animated fadeIn" ng-if="contentReady">
+  <h3 class="text-center">Tableboard</h3>
+  <p class="text-center">These are the best {{ maxMatches }} recent players</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="element in tableboard
+        | orderBy: '-timestamp'
+        | orderBy: '-score'
+        | limitTo: maxMatches">
+        <th scope="row">{{$index + 1}}</th>
+        <td>{{ element.username}}</td>
+        <td>{{ element.score }}</td>
+      </tr>
+    </tbody>
+  </table>
   <!-- Go to Homepage -->
   <button type="button"
     class="btn btn-outline-warning btn-lg btn-block rounded-0"

@@ -30,6 +30,9 @@ function TableboardCtrl($scope, Tableboard) {
   // Get the tableboard list
   $scope.tableboard = Tableboard.getAll();
 
+  // Here we set to 5 the max of items to see on the view
+  $scope.maxMatches = 5;
+
   // Hide Loader after of content loaded
   $scope.tableboard.$loaded().then(function(data) {
     $scope.contentReady = true;

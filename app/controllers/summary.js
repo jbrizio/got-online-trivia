@@ -47,7 +47,11 @@ function SummaryCtrl($scope, $stateParams, Tableboard, Questions) {
   // Save the match on the DB
   $scope.saveMatch = function() {
   	var tableboard = Tableboard.getAll();
-  	tableboard.$add({score: $scope.scoreboard, username: username.value});
+  	tableboard.$add({
+      score: $scope.scoreboard,
+      username: username.value,
+      timestamp: + new Date()
+    });
   };
 }
 })();
