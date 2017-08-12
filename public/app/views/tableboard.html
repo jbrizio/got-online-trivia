@@ -5,7 +5,7 @@
 <!-- Content -->
 <div class="animated fadeIn" ng-if="contentReady">
   <h3 class="text-center">Tableboard</h3>
-  <p class="text-center">These are the best {{ maxMatches }} recent players</p>
+  <p class="text-center">These are the recent {{ maxMatches }} matches</p>
   <table class="table">
     <thead>
       <tr>
@@ -15,10 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="element in tableboard
-        | orderBy: '-timestamp'
-        | orderBy: '-score'
-        | limitTo: maxMatches">
+      <tr ng-repeat="element in tableboard | limitTo: maxMatches">
         <th scope="row">{{$index + 1}}</th>
         <td>{{ element.username}}</td>
         <td>{{ element.score }}</td>
