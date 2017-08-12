@@ -28,13 +28,21 @@ TableboardCtrl.$inject = [
  */
 function TableboardCtrl($scope, Tableboard) {
   // Get the tableboard list
-  $scope.tableboard = Tableboard.getAll();
+  var allMatches = Tableboard.getAll();
 
   // Here we set to 5 the max of items to see on the view
   $scope.maxMatches = 5;
 
   // Hide Loader after of content loaded
-  $scope.tableboard.$loaded().then(function(data) {
+  allMatches.$loaded().then(function(data) {
+    // Sort array by score and timestamp
+    $scope.tableboard = allMatches.sort(function(a,b) {
+      if (a.score != b.score){
+        return (b.score - a.score);
+      } else {
+        return (b.timestamp - a.timestamp);
+      }
+    });
     $scope.contentReady = true;
   }).catch(function(error) {
     console.error('Error getting the information:', error);
